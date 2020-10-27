@@ -1,0 +1,25 @@
+{% extends "product_base.html" %}
+{% block body_block %}
+
+    <h2>Welcome to all the products!</h2>
+      {% for product in products %}
+
+      <div class="jumbotron">
+         <h5><a href="{{product.id}}">{{product.name}}</a></h5>
+         <img src="{{product.photo.url}}" width="200" height="200"></a>
+
+         <h5>Description:</h5><p> {{product.description|truncatechars:150}}</p>
+
+         <h5>Company:</h5>
+         <p><img src="{{product.company.logo.url}}" width="80" height="80" class="img-thumbnail">
+           <b> {{product.company}}</b>
+         </p>
+
+         <p> <b>Product Category: </b>{{product.category}}</p>
+         <p> <b>Schooltype: </b>{{product.schooltype}}</p>
+         <p><b>Price: </b>{{product.price}} €</p>
+         <p><b> End date: </b>{{product.end_date}}</p>
+      </div>
+
+      {% endfor %}
+{% endblock %}
